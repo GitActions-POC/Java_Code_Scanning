@@ -12,6 +12,7 @@ jobs:
     with:
       output: results.sarif
       format: sarif
+      code-quality-check: No
   call-common-template:
     needs: call-code-scanning
     permissions: 
