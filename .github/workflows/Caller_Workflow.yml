@@ -15,7 +15,7 @@ jobs:
       code-quality-check: No
   call-common-template:
     if: ${{ needs.call-code-scanning.outputs.code-quality-check == 'yes' }}
-    needs: call-code-scanning
+ #   needs: call-code-scanning
     permissions: 
       contents: read
       issues: read
