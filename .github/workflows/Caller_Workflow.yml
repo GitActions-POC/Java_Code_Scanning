@@ -13,6 +13,7 @@ jobs:
       output: results.sarif
       format: sarif
   call-common-template:
+    needs: call-code-scanning
     permissions: 
       contents: read
       issues: read
