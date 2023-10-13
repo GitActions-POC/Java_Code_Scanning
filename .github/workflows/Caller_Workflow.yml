@@ -12,10 +12,10 @@ jobs:
     with:
       output: results.sarif
       format: sarif
-      code-quality-check: No
+      code-quality-check: No    
   call-common-template:
-    if: ${{ needs.call-code-scanning.outputs.code-quality-check == 'yes' }}
- #   needs: call-code-scanning
+    needs: call-code-scanning
+    if: needs.call-code-scanning.result == 'skipped' || needs.call-code-scanning.result == 'success'
     permissions: 
       contents: read
       issues: read
