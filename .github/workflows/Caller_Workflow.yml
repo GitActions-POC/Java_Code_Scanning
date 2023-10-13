@@ -12,7 +12,7 @@ jobs:
     with:
       output: results.sarif
       format: sarif
-      code-quality-check: No    
+      code-quality-check: yes    
   call-common-template:
     needs: call-code-scanning
     if: |
