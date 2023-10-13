@@ -15,7 +15,9 @@ jobs:
       code-quality-check: No    
   call-common-template:
     needs: call-code-scanning
-    if: (needs.call-code-scanning.result == 'skipped' || needs.call-code-scanning.result == 'success')
+    if: |
+      always() &&
+      (needs.call-code-scanning.result == 'skipped' || needs.call-code-scanning.result == 'success')
     permissions: 
       contents: read
       issues: read
