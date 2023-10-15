@@ -9,11 +9,16 @@ jobs:
       issues: read
       checks: write
       pull-requests: write
-    uses:  GitActions-POC/Code-Scanning-Repo/.github/workflows/common_template_java.yml@main
+      actions: read
+      security-events: write
+    uses:  GitActions-POC/Code-Scanning-Repo/.github/workflows/common-template-java-new.yml@main
     with:
       GLOBAL_MY_MAPPED_ENV_VAR: staticvar
       junit_files: "**/surefire-reports/TEST-*.xml"
       package: pom.xml
+      output: results.sarif
+      format: sarif
+      code-quality-check: No
     secrets:
       ADOVARIABLE: "${{ secrets.ADOVARIABLE }}"
       CLIENT_ID: "${{ secrets.CLIENT_ID }}"
