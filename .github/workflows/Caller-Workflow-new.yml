@@ -18,7 +18,7 @@ jobs:
       package: pom.xml
       output: results.sarif
       format: sarif
-      code-quality-check: No
+      code-quality-check: yes
     secrets:
       ADOVARIABLE: "${{ secrets.ADOVARIABLE }}"
       CLIENT_ID: "${{ secrets.CLIENT_ID }}"
