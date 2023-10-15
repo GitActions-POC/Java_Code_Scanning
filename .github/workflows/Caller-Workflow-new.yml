@@ -1,0 +1,22 @@
+name: Caller_Workflow
+on:
+  workflow_dispatch:
+
+jobs:
+  call-common-template:
+    permissions: 
+      contents: read
+      issues: read
+      checks: write
+      pull-requests: write
+    uses:  GitActions-POC/Code-Scanning-Repo/.github/workflows/common_template_java.yml@main
+    with:
+      GLOBAL_MY_MAPPED_ENV_VAR: staticvar
+      junit_files: "**/surefire-reports/TEST-*.xml"
+      package: pom.xml
+    secrets:
+      ADOVARIABLE: "${{ secrets.ADOVARIABLE }}"
+      CLIENT_ID: "${{ secrets.CLIENT_ID }}"
+      CLIENT_SECRET: "${{ secrets.CLIENT_SECRET }}"
+      SUBSCRIPTION_ID: "${{ secrets.SUBSCRIPTION_ID }}"
+      TENANT_ID: "${{ secrets.TENANT_ID }}"
